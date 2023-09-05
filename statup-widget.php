@@ -246,7 +246,7 @@ final class Elementor_Statup_Extension {
 	public function init_widgets() {
 
 		require_once( __DIR__ . '/widgets/test-widget.php' );
-		//require_once( __DIR__ . '/widgets/heading-widget.php' );
+		require_once( __DIR__ . '/widgets/banner-widget.php' );
 		//require_once( __DIR__ . '/widgets/about-widget.php' );
 		//require_once( __DIR__ . '/widgets/features-widget.php' );
 		//require_once( __DIR__ . '/widgets/services-widget.php' );
@@ -256,7 +256,7 @@ final class Elementor_Statup_Extension {
 		//require_once( __DIR__ . '/widgets/team-widget.php' );
 
 	     \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Test_Widget() );
-    	////	\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Heading_Widget() );
+    	 \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Banner_Widget() );
 		////	\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \About_Widget() );
 		////	\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Features_Widget() );
 		////	\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Services_Widget() );
@@ -293,28 +293,44 @@ final class Elementor_Statup_Extension {
 	// Custom CSS
 	public function widget_styles() {
 
-		wp_register_style( 'statup-extension-font', plugins_url( 'https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800;900&display=swap', __FILE__ ) );
-		wp_register_style( 'picchi-theme-style', plugins_url( 'js/theme.css', __FILE__ ) );
-		wp_register_style( 'picchi-owl-style', plugins_url( 'js/owl.css', __FILE__ ) );
-		wp_register_style( 'statup-extension-style', plugins_url( 'css/style.css', __FILE__ ) );
+		wp_register_style( 'boostrap', plugins_url( 'assets/css/bootstrap.css', __FILE__ ) );
+		wp_register_style( 'meanmenu', plugins_url( 'assets/css/meanmenu.css', __FILE__ ) );
+		wp_register_style( 'animate', plugins_url( 'assets/css/animate.css', __FILE__ ) );
+		wp_register_style( 'slick', plugins_url( 'assets/css/slick.css', __FILE__ ) );
+		wp_register_style( 'nouislider', plugins_url( 'ssets/css/nouislider.css', __FILE__ ) );
+		wp_register_style( 'backtotop', plugins_url( 'assets/css/backtotop.css', __FILE__ ) );
+		wp_register_style( 'magnific', plugins_url( 'asassets/css/magnific-popup.css', __FILE__ ) );
+		wp_register_style( 'nice', plugins_url( 'assets/css/nice-select.css', __FILE__ ) );
+		wp_register_style( 'font-awesome-pro', plugins_url( 'assets/css/font-awesome-pro.csss', __FILE__ ) );
+		wp_register_style( 'elegant', plugins_url( 'assets/css/elegant-icon.css', __FILE__ ) );
+		wp_register_style( 'spacing', plugins_url( 'assets/css/spacing.css', __FILE__ ) );
+		wp_register_style( 'main', plugins_url( 'assets/css/main.css', __FILE__ ) );
 		
-		wp_enqueue_style('statup-extension-font');
-		wp_enqueue_style('picchi-theme-font');
-		wp_enqueue_style('picchi-owl-font');
-		wp_enqueue_style('statup-extension-style');
+	
 
 	}	
 
     // Custom JS
 	public function widget_scripts() {
-		wp_register_script( 'picchi-waypoint-js', plugins_url( 'js/waypoint.min.js', __FILE__ ) );
-		wp_register_script( 'picchi-counterup-js', plugins_url( 'js/counterup.min.js', __FILE__ ) );
-		wp_register_script( 'picchi-owl-js', plugins_url( 'js/owl.js', __FILE__ ) );
-		wp_register_script( 'picchi-main-js', plugins_url( 'js/main.js', __FILE__ ) );
-		wp_enqueue_script('picchi-waypoint-js');
-		wp_enqueue_script('picchi-counterup-js');
-		wp_enqueue_script('picchi-owl-js');
-		wp_enqueue_script('picchi-main-js');
+		wp_register_script( 'jquery', plugins_url( 'assets/js/vendor/jquery.js', __FILE__ ) );
+		wp_register_script( 'waypoints', plugins_url( 'assets/js/vendor/waypoints.js', __FILE__ ) );
+		wp_register_script( 'bootstrap', plugins_url( 'assets/js/bootstrap-bundle.js', __FILE__ ) );
+		wp_register_script( 'swiper', plugins_url( 'assets/js/swiper-bundle.js', __FILE__ ) );
+		wp_register_script( 'slick', plugins_url( 'assets/js/slick.js', __FILE__ ) );
+		wp_register_script( 'nouislider', plugins_url( 'assets/js/nouislider.js', __FILE__ ) );
+		wp_register_script( 'magnific', plugins_url( 'assets/js/magnific-popup.js', __FILE__ ) );
+		wp_register_script( 'parallax', plugins_url( 'assets/js/parallax.js', __FILE__ ) );
+		wp_register_script( 'easing', plugins_url( 'assets/js/easing.js', __FILE__ ) );
+		wp_register_script( 'parallax', plugins_url( 'assets/js/parallax-scroll.js', __FILE__ ) );
+		wp_register_script( 'backtotop', plugins_url( 'assets/js/backtotop.js', __FILE__ ) );
+		wp_register_script( 'nice', plugins_url( 'assets/js/nice-select.js', __FILE__ ) );
+		wp_register_script( 'purecounter', plugins_url( 'assets/js/purecounter.js', __FILE__ ) );
+		wp_register_script( 'wow', plugins_url( 'assets/js/wow.js', __FILE__ ) );
+		wp_register_script( 'isotope', plugins_url( 'assets/js/isotope-pkgd.js', __FILE__ ) );
+		wp_register_script( 'imagesloaded', plugins_url( 'assets/js/imagesloaded-pkgd.js', __FILE__ ) );
+		wp_register_script( 'ajax', plugins_url( 'assets/js/ajax-form.js', __FILE__ ) );
+		wp_register_script( 'main', plugins_url( 'assets/js/main.js', __FILE__ ) );
+		
 	}
 
     // Custom Category
