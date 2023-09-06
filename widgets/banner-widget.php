@@ -405,22 +405,11 @@ class Banner_Widget extends \Elementor\Widget_Base {
 				'type' => \Elementor\Controls_Manager::HEADING,
 				'separator' =>'after',
 				'selectors' => [
-					'{{WRAPPER}} .tp-btnr-yellow tp-btn-shine-effect' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .banner_button' => 'color: {{VALUE}}',
 				],
 			]
 		);
 
-
-        $this->add_control(
-			'banner_btn_color',
-			[
-				'label' => esc_html__( 'Button Color', 'statup-extension' ),
-				'type' => \Elementor\Controls_Manager::COLOR,
-				'selectors' => [
-					'{{WRAPPER}} .tp-btnr-yellow tp-btn-shine-effect' => 'color: {{VALUE}}',
-				],
-			]
-		);
 
 
         $this->add_group_control(
@@ -428,7 +417,7 @@ class Banner_Widget extends \Elementor\Widget_Base {
 			[
 				'name' => 'banner_btn_Typography',
 				'label'=>'Button Typography',
-				'selector' => '{{WRAPPER}} .tp-btnr-yellow tp-btn-shine-effect',
+				'selector' => '{{WRAPPER}} .banner_button',
 			]
 		);
 
@@ -437,11 +426,142 @@ class Banner_Widget extends \Elementor\Widget_Base {
 			[
 				'name' => 'banner_btn_shadow',
                 'label'=> 'Shadow',
-				'selector' => '{{WRAPPER}} .tp-btnr-yellow tp-btn-shine-effect',
+				'selector' => '{{WRAPPER}} .banner_button',
 			]
 		);
 
 
+        $this->start_controls_tabs(
+			'style_tabs'
+		);
+//===========================NORMAL TAB FOR BUTTON==============================================================
+        $this->start_controls_tab(
+			'style_normal_tab',
+			[
+				'label' => esc_html__( 'Normal', 'statup-extension' ),
+			]
+		);
+
+        $this->add_control(
+			'banner_btn_color',
+			[
+				'label' => esc_html__( ' Button Color', 'statup-extension' ),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .banner_button' => 'color: {{VALUE}}',
+				],
+			]
+		);
+
+        $this->add_group_control(
+			\Elementor\Group_Control_Background::get_type(),
+			[
+				'name' => 'background',
+				'types' => [ 'classic', 'gradient', 'video' ],
+				'selector' => '{{WRAPPER}} .banner_button',
+			]
+		);
+
+        $this->add_group_control(
+			\Elementor\Group_Control_Border::get_type(),
+			[
+				'name' => 'banner_border',
+                'label'=>'Border',
+				'selector' => '{{WRAPPER}} .banner_button',
+			]
+		);
+
+		$this->add_control(
+			'banner_border_radius',
+			[
+				'label' => esc_html__( 'Border Radius', 'statup-extension' ),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
+				'selectors' => [
+					'{{WRAPPER}} .banner_button' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+
+		$this->add_control(
+			'banner_padding',
+			[
+				'label' => esc_html__( 'Padding', 'statup-extension' ),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'selectors' => [
+					'{{WRAPPER}} .banner_button' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+        $this->end_controls_tab();
+
+
+//=====================HOVER STYLE======================================================================
+        $this->start_controls_tab(
+			'style_hover_tab',
+			[
+				'label' => esc_html__( 'Hover', 'statup-extension' ),
+			]
+		);
+
+		$this->add_control(
+			'banner_btn_color_hover',
+			[
+				'label' => esc_html__( ' Button Color', 'statup-extension' ),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .banner_button:hover' => 'color: {{VALUE}}',
+				],
+			]
+		);
+
+        $this->add_group_control(
+			\Elementor\Group_Control_Background::get_type(),
+			[
+				'name' => 'banner_btn_hover',
+				'label' => 'Background',
+				'types' => [ 'classic', 'gradient', 'video' ],
+				'selector' => '{{WRAPPER}} .banner_button:hover',
+			]
+		);
+
+        $this->add_group_control(
+			\Elementor\Group_Control_Border::get_type(),
+			[
+				'name' => 'banner_border_hover',
+                'label'=>'Border',
+				'selector' => '{{WRAPPER}} .banner_button:hover',
+			]
+		);
+
+		$this->add_control(
+			'banner_border_radius_hover',
+			[
+				'label' => esc_html__( 'Border Radius', 'statup-extension' ),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
+				'selectors' => [
+					'{{WRAPPER}} .banner_button:hover' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+
+		$this->add_control(
+			'banner_padding_hover',
+			[
+				'label' => esc_html__( 'Padding', 'textdomain' ),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'selectors' => [
+					'{{WRAPPER}} .banner_button:hover' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+        $this->end_controls_tab();
+        $this->end_controls_tabs();
 
         $this->end_controls_section();
 
@@ -468,8 +588,8 @@ class Banner_Widget extends \Elementor\Widget_Base {
         $ban_btn 	=$settings['banner_btn'];
         $ban_link 	=$settings['banner_link']['url'];
         $ban_side_images 	=$settings['ban_side_images']['url'];
-        $ban_shape_one 	=$settings['ban_shape_one']['url'];
-        $ban_shape_two 	=$settings['ban_shape_two']['url'];
+        $ban_shape_one 	    =$settings['ban_shape_one']['url'];
+        $ban_shape_two 	    =$settings['ban_shape_two']['url'];
         $ban_shape_three 	=$settings['ban_shape_three']['url'];
         
 
@@ -492,7 +612,7 @@ class Banner_Widget extends \Elementor\Widget_Base {
                         <p class="banner_des"> <?php echo $ban_des; ?></p>
 
                         <div class="slider__subscribe">
-                        <a  class="tp-btnr-yellow tp-btn-shine-effect" href="<?php echo $ban_link; ?>"> <?php echo $ban_btn; ?> </a>
+                        <a  class="tp-btnr-yellow tp-btn-shine-effect banner_button" href="<?php echo $ban_link; ?>"> <?php echo $ban_btn; ?> </a>
                         
                         </div>
                      </div>
