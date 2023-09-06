@@ -48,7 +48,7 @@ class Banner_Widget extends \Elementor\Widget_Base {
 	 * @return string Widget icon.
 	 */
 	public function get_icon() {
-		return 'eicon-code';
+		return ' eicon-post-slider';
 	}
 
 	/**
