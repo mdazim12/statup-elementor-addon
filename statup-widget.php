@@ -248,7 +248,7 @@ final class Elementor_Statup_Extension {
 		require_once( __DIR__ . '/widgets/test-widget.php' );
 		require_once( __DIR__ . '/widgets/banner-widget.php' );
 		require_once( __DIR__ . '/widgets/statup-heading-widget.php' );
-		//require_once( __DIR__ . '/widgets/features-widget.php' );
+		require_once( __DIR__ . '/widgets/services-box-widget.php' );
 		//require_once( __DIR__ . '/widgets/services-widget.php' );
 		//require_once( __DIR__ . '/widgets/process-widget.php' );
 		//require_once( __DIR__ . '/widgets/projects-widget.php' );
@@ -257,7 +257,7 @@ final class Elementor_Statup_Extension {
 
 	     \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Test_Widget() );
     	 \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Banner_Widget() );
-		 \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Statup_Heading_Widget() );
+		 \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Statup_Services_Box_Widget() );
 		////	\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Features_Widget() );
 		////	\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Services_Widget() );
 		////	\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Process_Widget() );
