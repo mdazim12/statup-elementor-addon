@@ -598,7 +598,7 @@ class Banner_Widget extends \Elementor\Widget_Base {
 
     ?>
 
-<section class="slider__area pt-180 z-index-1 p-relative fix">
+		<section class="slider__area pt-180 z-index-1 p-relative fix">
             <div class="slider__shape">
                <img class="slider__shape-19" src="<?php echo $ban_shape_one;?>" alt="">
             </div>
