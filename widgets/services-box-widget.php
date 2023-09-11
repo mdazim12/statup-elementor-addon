@@ -166,6 +166,203 @@ class Statup_Services_Box_Widget extends \Elementor\Widget_Base {
 
 
         $this->end_controls_section();
+
+		
+
+
+//======================STYLE TABS===========================================================================
+
+		 $this->start_controls_section(
+			'services_box_control',
+			[
+				'label' => esc_html__( 'Images', 'statup-extension' ),
+				'tab' => \Elementor\Controls_Manager::TAB_STYLE,
+				'separator' =>'after',
+			]
+		);
+
+		
+		$this->add_responsive_control(
+			'servics_images_spacing',
+			[
+				'type' => \Elementor\Controls_Manager::SLIDER,
+				'label' => esc_html__( 'Spacing', 'statup-extension' ),
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 100,
+					],
+				],
+				'devices' => [ 'desktop', 'tablet', 'mobile' ],
+				'desktop_default' => [
+					'size' => 30,
+					'unit' => 'px',
+				],
+				'tablet_default' => [
+					'size' => 20,
+					'unit' => 'px',
+				],
+				'mobile_default' => [
+					'size' => 10,
+					'unit' => 'px',
+				],
+				'selectors' => [
+					'{{WRAPPER}} .services_box_images' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
+
+
+		$this->add_responsive_control(
+			'servics_images_width',
+			[
+				'type' => \Elementor\Controls_Manager::SLIDER,
+				'label' => esc_html__( 'Width', 'statup-extension' ),
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 100,
+					],
+				],
+				'devices' => [ 'desktop', 'tablet', 'mobile' ],
+				'desktop_default' => [
+					'size' => 30,
+					'unit' => 'px',
+				],
+				'tablet_default' => [
+					'size' => 20,
+					'unit' => 'px',
+				],
+				'mobile_default' => [
+					'size' => 10,
+					'unit' => 'px',
+				],
+				'selectors' => [
+					'{{WRAPPER}} .services_box_images' => 'width: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Border::get_type(),
+			[
+				'name' => 'services_box_images_border',
+                'label'=>'Border',
+				'selector' => '{{WRAPPER}} .services_box_images',
+			]
+		);
+
+		$this->add_responsive_control(
+			'servics_images_border_raduis',
+			[	
+				
+				'label' => esc_html__( 'Raduis', 'statup-extension' ),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
+				
+				'devices' => [ 'desktop', 'tablet', 'mobile' ],
+				'desktop_default' => [
+					'size' => 0,
+					'unit' => 'px',
+				],
+				'tablet_default' => [
+					'size' => 0,
+					'unit' => 'px',
+				],
+				'mobile_default' => [
+					'size' => 0,
+					'unit' => 'px',
+				],
+				'selectors' => [
+					'{{WRAPPER}} .services_box_images' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+
+
+		$this->end_controls_section();
+
+///=============STYLE CONTENT SECTION ================================================================================
+
+		$this->start_controls_section(
+			'services_box_content_control',
+			[
+				'label' => esc_html__( 'Content', 'statup-extension' ),
+				'tab' => \Elementor\Controls_Manager::TAB_STYLE,
+				'separator' =>'after',
+			]
+		);
+
+		
+        $this->add_control(
+			'services_box_content_heading',
+			[
+				'label' => esc_html__( 'Title', 'statup-extension' ),
+				'type' => \Elementor\Controls_Manager::HEADING,
+				'selectors' => [
+					'{{WRAPPER}} .heading' => 'color: {{VALUE}}',
+				],
+			]
+		);
+
+        $this->add_control(
+			'services_box_content_heading_color',
+			[
+				'label' => esc_html__( ' Title Color', 'statup-extension' ),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .features__title-7' => 'color: {{VALUE}}',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
+			[
+				'name' => 'services_box_content_heading_Typography',
+				'label'=>'Typography',
+				'selector' => '{{WRAPPER}} .features__title-7',
+			]
+		);
+
+        $this->add_group_control(
+			\Elementor\Group_Control_Text_Stroke::get_type(),
+			[
+				'name' => 'services_box_content_heading_stoke',
+                'label'=> 'Stroke',
+				'selector' => '{{WRAPPER}} .features__title-7',
+			]
+		);
+       
+        $this->add_group_control(
+			\Elementor\Group_Control_Text_Shadow::get_type(),
+			[
+				'name' => 'services_box_content_heading_shadow',
+                'label'=> 'Shadow',
+				'selector' => '{{WRAPPER}} .features__title-7',
+			]
+		);
+
+		$this->add_control(
+			'services_box_content_description',
+			[
+				'label' => esc_html__( 'Description', 'statup-extension' ),
+				'type' => \Elementor\Controls_Manager::HEADING,
+				'separator' =>'after',
+				'selectors' => [
+					'{{WRAPPER}} .heading' => 'color: {{VALUE}}',
+				],
+			]
+		);
+
+
+        
+
+
+
+		$this->end_controls_section();
+
     }
 
 
@@ -189,11 +386,11 @@ class Statup_Services_Box_Widget extends \Elementor\Widget_Base {
         
 
     ?>
-
-                        <div class="features__item-7 text-center mb-30 white-bg transition-3 wow fadeInUp" data-wow-delay=".5s" data-wow-duration="1s">
+					<div class="services_wrapper">
+                        <div class="text-center mb-30  transition-3 wow fadeInUp services_box" data-wow-delay=".5s" data-wow-duration="1s">
                             <div class="features__icon-7">
                             <span>
-                                <img src="<?php echo $services_box_iocn;?>" alt="">
+                                <img class='services_box_images' src="<?php echo $services_box_iocn;?>" alt="">
                             </span>
                             </div>
                             <div class="features__content-7">
@@ -205,7 +402,9 @@ class Statup_Services_Box_Widget extends \Elementor\Widget_Base {
                                 </a>
                             </div>
                             </div>
-                        </div>                 
+                        </div>
+					</div>
+
 
 
 <?php
