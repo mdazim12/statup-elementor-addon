@@ -357,11 +357,247 @@ class Statup_Services_Box_Widget extends \Elementor\Widget_Base {
 		);
 
 
-        
+
+
+        $this->add_control(
+			'services_des_color',
+			[
+				'label' => esc_html__( ' Description Color', 'statup-extension' ),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .services_des' => 'color: {{VALUE}}',
+				],
+			]
+		);
+
+        $this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
+			[
+				'name' => 'services_des_Typography',
+				'label'=>'Typography',
+				'selector' => '{{WRAPPER}} .services_des',
+			]
+		);
+
+        $this->add_group_control(
+			\Elementor\Group_Control_Text_Shadow::get_type(),
+			[
+				'name' => 'services_des_shadow',
+                'label'=> 'Shadow',
+				'selector' => '{{WRAPPER}} .services_des',
+			]
+		);
+
+
+		$this->end_controls_section();
+
+
+//=========SERVICES BUTTON STYLE===========================================================================================
+
+		$this->start_controls_section(
+			'services_box_button',
+			[
+				'label' => esc_html__( 'Button', 'statup-extension' ),
+				'tab' => \Elementor\Controls_Manager::TAB_STYLE,
+			]
+		);
+
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
+			[
+				'name' => 'services_btn_Typography',
+				'label'=>'Typography',
+				'selector' => '{{WRAPPER}} .services_btn',
+			]
+		);
+
+        $this->add_group_control(
+			\Elementor\Group_Control_Text_Shadow::get_type(),
+			[
+				'name' => 'services_btn_shadow',
+                'label'=> 'Shadow',
+				'selector' => '{{WRAPPER}} .services_btn',
+			]
+		);
+
+
+
+		$this->start_controls_tabs(
+			'style_tabs'
+		);
+//===========================NORMAL TAB FOR BUTTON==============================================================
+        $this->start_controls_tab(
+			'services_normal_style',
+			[
+				'label' => esc_html__( 'Normal', 'statup-extension' ),
+			]
+		);
+
+        $this->add_control(
+			'services_btn_color',
+			[
+				'label' => esc_html__( 'Color', 'statup-extension' ),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .services_btn' => 'color: {{VALUE}}',
+				],
+			]
+		);
+
+        $this->add_group_control(
+			\Elementor\Group_Control_Background::get_type(),
+			[
+				'name' => 'services_btn_background',
+				'types' => [ 'classic', 'gradient', 'video' ],
+				'selector' => '{{WRAPPER}} .services_btn',
+			]
+		);
+
+        $this->add_group_control(
+			\Elementor\Group_Control_Border::get_type(),
+			[
+				'name' => 'services_btn_border',
+                'label'=>'Border',
+				'selector' => '{{WRAPPER}} .services_btn',
+			]
+		);
+
+		$this->add_responsive_control(
+			'servics_btn_border_raduis',
+			[	
+				
+				'label' => esc_html__( 'Raduis', 'statup-extension' ),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
+				
+				'devices' => [ 'desktop', 'tablet', 'mobile' ],
+				'desktop_default' => [
+					'size' => 0,
+					'unit' => 'px',
+				],
+				'tablet_default' => [
+					'size' => 0,
+					'unit' => 'px',
+				],
+				'mobile_default' => [
+					'size' => 0,
+					'unit' => 'px',
+				],
+				'selectors' => [
+					'{{WRAPPER}} .services_btn' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'servics_btn_padding',
+			[	
+				
+				'label' => esc_html__( 'Padding', 'statup-extension' ),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
+				
+				'devices' => [ 'desktop', 'tablet', 'mobile' ],
+				'desktop_default' => [
+					'size' => 0,
+					'unit' => 'px',
+				],
+				'tablet_default' => [
+					'size' => 0,
+					'unit' => 'px',
+				],
+				'mobile_default' => [
+					'size' => 0,
+					'unit' => 'px',
+				],
+				'selectors' => [
+					'{{WRAPPER}} .services_btn' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->end_controls_tab();
+
+
+		
+//=====================HOVER STYLE======================================================================
+			$this->start_controls_tab(
+				'services_hover_style',
+				[
+					'label' => esc_html__( 'Hover', 'statup-extension' ),
+				]
+			);
+
+			$this->add_control(
+				'services_color_hover',
+				[
+					'label' => esc_html__( ' Button Color', 'statup-extension' ),
+					'type' => \Elementor\Controls_Manager::COLOR,
+					'selectors' => [
+						'{{WRAPPER}} .services_btn:hover' => 'color: {{VALUE}}',
+					],
+				]
+			);
+
+			$this->add_group_control(
+				\Elementor\Group_Control_Background::get_type(),
+				[
+					'name' => 'services_btn_hover',
+					'label' => 'Background',
+					'types' => [ 'classic', 'gradient', 'video' ],
+					'selector' => '{{WRAPPER}} .services_btn:hover',
+				]
+			);
+
+			$this->add_group_control(
+				\Elementor\Group_Control_Border::get_type(),
+				[
+					'name' => 'services_hover',
+					'label'=>'Border',
+					'selector' => '{{WRAPPER}} .services_btn:hover',
+				]
+			);
+
+			$this->add_control(
+				'services_radius_hover',
+				[
+					'label' => esc_html__( 'Border Radius', 'statup-extension' ),
+					'type' => \Elementor\Controls_Manager::DIMENSIONS,
+					'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
+					'selectors' => [
+						'{{WRAPPER}} .services_btn:hover' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					],
+				]
+			);
+
+
+			$this->add_control(
+				'services_padding_hover',
+				[
+					'label' => esc_html__( 'Padding', 'textdomain' ),
+					'type' => \Elementor\Controls_Manager::DIMENSIONS,
+					'selectors' => [
+						'{{WRAPPER}} .services_btn:hover' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					],
+				]
+			);
+
+			$this->end_controls_tab();
+
+
+		
+
+        $this->end_controls_tabs();
 
 
 
 		$this->end_controls_section();
+
+
+
+
+
 
     }
 
@@ -395,9 +631,9 @@ class Statup_Services_Box_Widget extends \Elementor\Widget_Base {
                             </div>
                             <div class="features__content-7">
                             <h3 class="features__title-7"> <?php echo $services_title;?> </h3>
-                            <p> <?php echo $services_description;?> </p>
+                            <p class= 'services_des'> <?php echo $services_description;?> </p>
                             <div class="features__btn-7">
-                                <a href="<?php echo $services_btn_link;?>" class="tp-link-btn-3">
+                                <a class="services_btn" href="<?php echo $services_btn_link;?>" class="tp-link-btn-3">
                                    <?php echo $services_btn; ?>
                                 </a>
                             </div>
