@@ -4,7 +4,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Elementor banner Widget.
+ * Elementor Service Box Widget.
  *
  * Elementor widget that inserts an embbedable content into the page, from any given URL.
  *
@@ -151,6 +151,7 @@ class Statup_Services_Box_Widget extends \Elementor\Widget_Base {
                 'type' => \Elementor\Controls_Manager::TEXT,
                 'placeholder' => esc_html__( 'Button name', 'statup-extension' ),
                 'label_block' =>true,
+				'default' => esc_html__( 'Click Me' ),
             ]
         );
 
@@ -218,6 +219,7 @@ class Statup_Services_Box_Widget extends \Elementor\Widget_Base {
 			[
 				'type' => \Elementor\Controls_Manager::SLIDER,
 				'label' => esc_html__( 'Width', 'statup-extension' ),
+				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'range' => [
 					'px' => [
 						'min' => 0,
