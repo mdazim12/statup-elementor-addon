@@ -258,8 +258,8 @@ final class Elementor_Statup_Extension {
 	     \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Test_Widget() );
     	 \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Banner_Widget() );
 		 \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Statup_Services_Box_Widget() );
-		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Statup_mewslatter_Widget() );
-		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Feature_Images_Widget() );
+		 \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Statup_mewslatter_Widget() );
+		 \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Feature_Images_Widget() );
 		////	\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Process_Widget() );
 		////	\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Projects_Widget() );
 		////	\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Counter_Widget() );
